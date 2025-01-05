@@ -1,5 +1,8 @@
-aiohttp
-jinja2
-markdown
-python-dotenv
-pyyaml
+aiohttp==3.11.7
+jinja2==3.1.4
+markdown==3.7
+python-dotenv==1.0.1
+pyyaml==6.0.1
+flask==3.1.0
+gunicorn==23.0.0
+yq==3.4.3
