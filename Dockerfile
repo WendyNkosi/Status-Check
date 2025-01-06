@@ -13,8 +13,8 @@ RUN pip install --upgrade pip \
 
 COPY . ./     
 
-RUN chmod +x /usr/src/app/server.sh
+RUN chmod +x /usr/src/app/serve.sh
 
 RUN pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
 
-CMD ["sh", "/usr/src/app/server.sh"]
+CMD ["sh", "/usr/src/app/serve.sh"]
