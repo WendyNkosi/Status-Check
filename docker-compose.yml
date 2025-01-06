@@ -1,0 +1,28 @@
+services:
+  app:
+    container_name: tinystatus
+    image: tinystatus
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - test-network
+
+  nginx:
+    image: nginx
+    build: 
+      context: ../nginx
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - test-network
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
+    depends_on:
+      - app
+
+networks:
+  test-network: 
