@@ -4,11 +4,11 @@ This project is based on [tinystatus](https://github.com/harsxv/tinystatus) proj
 # Status Page Check AWS Architecture
 ![er](https://github.com/WendyNkosi/Status-Check/blob/main/Screenshot%202025-01-05%20101747.png)
 
-# How to run
+# Running app in a Docker container
 
 ## Pre-requisites
 - Docker Desktop
-
+Run the following to build the docker images and start up the containers.
   ```python
   docker-compose up --build
   ```
