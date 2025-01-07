@@ -7,8 +7,8 @@ This project is based on [tinystatus](https://github.com/harsxv/tinystatus) proj
 # Running app in a Docker container
 
 ## Pre-requisites
-- Docker Desktop
-Run the following to build the docker images and start up the containers.
+- Docker Desktop<br>
+Run the following to build the docker images and start up the containers.<br>
   ```python
   docker-compose up --build
   ```
