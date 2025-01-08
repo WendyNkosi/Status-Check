@@ -8,7 +8,7 @@ import aiohttp
 import subprocess
 import markdown
 from jinja2 import Template
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import logging
 import platform
@@ -109,7 +109,7 @@ def save_history(history):
 def update_history(results):
     # TODO: Configure groups in history page
     history = load_history()
-    current_time = datetime.now().isoformat()
+    current_time =  (datetime.now()+timedelta(hours=2)).isoformat()
     for group in results.keys():
         for check in results[group]:
             if check['name'] not in history:
@@ -145,11 +145,11 @@ async def monitor_services():
 
             update_history(results)
 
-            html = template.render(groups=results, incidents=incidents, last_updated=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            html = template.render(groups=results, incidents=incidents, last_updated=(datetime.now()+timedelta(hours=2)).strftime("%Y-%m-%d %H:%M:%S"))
             with open(os.path.join(HTML_OUTPUT_DIRECTORY, 'index.html'), 'w') as f:
                 f.write(html)
 
-            history_html = history_template.render(history=load_history(), last_updated=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            history_html = history_template.render(history=load_history(), last_updated=(datetime.now()+timedelta(hours=2)).strftime("%Y-%m-%d %H:%M:%S")) 
             with open(os.path.join(HTML_OUTPUT_DIRECTORY, 'history.html'), 'w') as f:
                 f.write(history_html)
 
